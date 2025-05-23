@@ -8,6 +8,8 @@ public class ClickToMove : MonoBehaviour
     private Vector3 targetPosition;
     private bool isMoving = false;
 
+    [SerializeField] private float zOffset = -1f; 
+
     void Update()
     {
         // Detect left mouse click
@@ -23,6 +25,8 @@ public class ClickToMove : MonoBehaviour
                 isMoving = true;
             }
         }
+
+        targetPosition.z = zOffset;
 
         // Move towards the target position if clicked
         if (isMoving)
