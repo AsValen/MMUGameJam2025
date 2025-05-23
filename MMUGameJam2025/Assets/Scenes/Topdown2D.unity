@@ -717,6 +717,7 @@ GameObject:
   - component: {fileID: 2117702139}
   - component: {fileID: 2117702138}
   - component: {fileID: 2117702140}
+  - component: {fileID: 2117702141}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -789,3 +790,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followPlayerScript: {fileID: 963194229}
+--- !u!114 &2117702141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117702136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6c9b83460c17c49aeb469ff699b2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 50
