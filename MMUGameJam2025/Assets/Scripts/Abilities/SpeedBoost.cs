@@ -12,6 +12,47 @@ public class SpeedBoost : MonoBehaviour
 
     [SerializeField] private float maxZDistance = 250f;
     [SerializeField] private GameObject player;
+    public bool maintainedSpeed = false; 
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        constZMove = player.GetComponent<ConstZMove>();
+        state = player.GetComponent<GameState>();
+    }
+
+    void Update()
+    {
+        StartCoroutine(ActivateSpeed()); 
+    }
+
+    IEnumerator ActivateSpeed()
+    {
+        if (state.isSpeedBoost)
+        {
+            state.isSpeedBoost = false;
+            maintainedSpeed = true; 
+
+            constZMove.zSpeed *= speedBoost;
+
+            yield return new WaitForSeconds(durationAbilities);
+
+            constZMove.zSpeed /= speedBoost;
+            maintainedSpeed = false; 
+
+            Destroy(gameObject);
+        }
+    }
+
+    /*[SerializeField] private float speedBoost = 2f;
+    [SerializeField] private float durationAbilities = 5f;
+
+    [SerializeField] private PlayerMovementFPPOV playerMovement;
+    [SerializeField] private GameState state;
+
+    public bool maintainedSpeed = false; // NEW: Exposed for other scripts
+
+    private bool hasActivated = false;
 
     void Start()
     {
@@ -44,5 +85,5 @@ public class SpeedBoost : MonoBehaviour
 
             Destroy(gameObject);
         }
-    }
+    }*/
 }
