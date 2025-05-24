@@ -8,6 +8,12 @@ public class ClickToMove : MonoBehaviour
     private Vector2 targetPositionXY;
     private bool isMoving = false;
 
+    public GameObject idle;
+    public GameObject upperLeft;
+    public GameObject upperRight;
+    public GameObject lowerLeft;
+    public GameObject lowerRight;
+
     [SerializeField] private Animator animator;
     void Update()
     {
@@ -22,11 +28,23 @@ public class ClickToMove : MonoBehaviour
                 if (screenPos.y > Screen.height / 2f)
                 {
                     animator.SetTrigger("UpperLeft");
+                    upperLeft.SetActive(true);
+
+                    idle.SetActive(false);
+                    upperRight.SetActive(false);
+                    lowerLeft.SetActive(false);
+                    lowerRight.SetActive(false);
                     //animator.SetBool("isMoving", true); // Enable moving animation
                 }
                 else
                 {
                     animator.SetTrigger("LowerLeft");
+                    lowerLeft.SetActive(true);
+
+                    idle.SetActive(false);
+                    upperRight.SetActive(false);
+                    upperLeft.SetActive(false);
+                    lowerRight.SetActive(false);
                     //animator.SetBool("isMoving", true); // Enable moving animation
                 }
             }
@@ -35,11 +53,23 @@ public class ClickToMove : MonoBehaviour
                 if (screenPos.y > Screen.height / 2f)
                 {
                     animator.SetTrigger("UpperRight");
+                    upperRight.SetActive(true);
+
+                    idle.SetActive(false);
+                    upperLeft.SetActive(false);
+                    lowerLeft.SetActive(false);
+                    lowerRight.SetActive(false);
                     //animator.SetBool("isMoving", true); // Enable moving animation
                 }
                 else
                 {
                     animator.SetTrigger("LowerRight");
+                    lowerRight.SetActive(true);
+
+                    idle.SetActive(false);
+                    upperLeft.SetActive(false);
+                    upperRight.SetActive(false);
+                    lowerLeft.SetActive(false);
                     //animator.SetBool("isMoving", true); // Enable moving animation
                 }
             }
@@ -74,6 +104,12 @@ public class ClickToMove : MonoBehaviour
             {
                 isMoving = false;
                 animator.SetBool("isMoving", false); // Disable moving animation
+                idle.SetActive(true);
+
+                upperLeft.SetActive(false);
+                upperRight.SetActive(false);
+                lowerLeft.SetActive(false);
+                lowerRight.SetActive(false);
             }
 
             /*Vector3 currentZ = new Vector3(0, 0, transform.position.z);
