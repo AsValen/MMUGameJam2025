@@ -21,12 +21,21 @@ public class FollowPlayer : MonoBehaviour
     {
         if (target == null) return;
 
-        Vector3 desiredPosition = target.position + offset;
         float fixedSmoothSpeed = Time.deltaTime * smoothSpeed;
 
-        // lerp is a function that interpolates (finding a value between 2 known values) between two vectors
-        // it takes 3 parameters: the start position, the end position, and the interpolation factor (smoothSpeed)
-        Vector3 smoothedPosition = Vector3.Lerp(followCamera.transform.position, desiredPosition, fixedSmoothSpeed);
+        // Only follow Z axis; keep X and Y locked
+        Vector3 desiredPosition = new Vector3(
+            followCamera.transform.position.x,    // Keep current X
+            followCamera.transform.position.y,    // Keep current Y
+            target.position.z + offset.z          // Follow player on Z + offset
+        );
+
+        Vector3 smoothedPosition = Vector3.Lerp(
+            followCamera.transform.position,
+            desiredPosition,
+            fixedSmoothSpeed
+        );
+
         followCamera.transform.position = smoothedPosition;
     }
 }

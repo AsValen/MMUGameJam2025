@@ -22,91 +22,99 @@ public class ClickToMove : MonoBehaviour
         {
             Vector2 screenPos = Input.mousePosition;
 
-            Debug.Log("1");
-
-            //  Determine screen quadrant
-            if (screenPos.x < Screen.width / 2f)
+            Ray rayClickBoard = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(rayClickBoard, out RaycastHit hitClickBoard))
             {
-                Debug.Log("2");
-                if (screenPos.y > Screen.height / 2f)
+                if (hitClickBoard.collider.CompareTag("clickBoard"))
                 {
-                    Debug.Log("3");
-                    animator.SetTrigger("UpperLeft");
-                    upperLeft.SetActive(true);
+                    //Debug.Log("1");
 
-                    idle.SetActive(false);
-                    upperRight.SetActive(false);
-                    lowerLeft.SetActive(false);
-                    lowerRight.SetActive(false);
-                    //animator.SetBool("isMoving", true); // Enable moving animation
-                }
-                else
-                {
-                    Debug.Log("4");
-                    animator.SetTrigger("LowerLeft");
-                    lowerLeft.SetActive(true);
+                    //  Determine screen quadrant
+                    if (screenPos.x < Screen.width / 2f)
+                    {
+                        //Debug.Log("2");
+                        if (screenPos.y > Screen.height / 2f)
+                        {
+                            //Debug.Log("3");
+                            animator.SetTrigger("UpperLeft");
+                            upperLeft.SetActive(true);
 
-                    idle.SetActive(false);
-                    upperRight.SetActive(false);
-                    upperLeft.SetActive(false);
-                    lowerRight.SetActive(false);
-                    //animator.SetBool("isMoving", true); // Enable moving animation
+                            idle.SetActive(false);
+                            upperRight.SetActive(false);
+                            lowerLeft.SetActive(false);
+                            lowerRight.SetActive(false);
+                            //animator.SetBool("isMoving", true); // Enable moving animation
+                        }
+                        else
+                        {
+                            //Debug.Log("4");
+                            animator.SetTrigger("LowerLeft");
+                            lowerLeft.SetActive(true);
+
+                            idle.SetActive(false);
+                            upperRight.SetActive(false);
+                            upperLeft.SetActive(false);
+                            lowerRight.SetActive(false);
+                            //animator.SetBool("isMoving", true); // Enable moving animation
+                        }
+                    }
+                    else
+                    {
+                        if (screenPos.y > Screen.height / 2f)
+                        {
+                            //Debug.Log("5");
+                            animator.SetTrigger("UpperRight");
+                            upperRight.SetActive(true);
+
+                            idle.SetActive(false);
+                            upperLeft.SetActive(false);
+                            lowerLeft.SetActive(false);
+                            lowerRight.SetActive(false);
+                            //animator.SetBool("isMoving", true); // Enable moving animation
+                        }
+                        else
+                        {
+                            //Debug.Log("6");
+                            animator.SetTrigger("LowerRight");
+                            lowerRight.SetActive(true);
+
+                            idle.SetActive(false);
+                            upperLeft.SetActive(false);
+                            upperRight.SetActive(false);
+                            lowerLeft.SetActive(false);
+                            //animator.SetBool("isMoving", true); // Enable moving animation
+                        }
+                    }
+                    //Debug.Log("7");
+                    //  Raycast to detect click location in world space
+                    Ray ray = Camera.main.ScreenPointToRay(screenPos);
+                    if (Physics.Raycast(ray, out RaycastHit hit))
+                    {
+                        targetPositionXY = new Vector2(hit.point.x, hit.point.y);
+                        isMoving = true;
+                    }
+
+                    //Debug.Log("8");
+
+                    /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+
+                    // Check if ray hits something with a collider
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        // Set target X and Y; keep current Z
+                        targetPositionXY = new Vector2(hit.point.x, hit.point.y);
+                        isMoving = true;
+                    } */
                 }
             }
-            else
-            {
-                if (screenPos.y > Screen.height / 2f)
-                {
-                    Debug.Log("5");
-                    animator.SetTrigger("UpperRight");
-                    upperRight.SetActive(true);
-
-                    idle.SetActive(false);
-                    upperLeft.SetActive(false);
-                    lowerLeft.SetActive(false);
-                    lowerRight.SetActive(false);
-                    //animator.SetBool("isMoving", true); // Enable moving animation
-                }
-                else
-                {
-                    Debug.Log("6");
-                    animator.SetTrigger("LowerRight");
-                    lowerRight.SetActive(true);
-
-                    idle.SetActive(false);
-                    upperLeft.SetActive(false);
-                    upperRight.SetActive(false);
-                    lowerLeft.SetActive(false);
-                    //animator.SetBool("isMoving", true); // Enable moving animation
-                }
-            }
-            Debug.Log("7");
-            //  Raycast to detect click location in world space
-            Ray ray = Camera.main.ScreenPointToRay(screenPos);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                targetPositionXY = new Vector2(hit.point.x, hit.point.y);
-                isMoving = true;
-            }
-
-            Debug.Log("8");
-
-            /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            // Check if ray hits something with a collider
-            if (Physics.Raycast(ray, out hit))
-            {
-                // Set target X and Y; keep current Z
-                targetPositionXY = new Vector2(hit.point.x, hit.point.y);
-                isMoving = true;
-            } */
+            
         }
 
         // Move towards the clicked X and Y target
         if (isMoving)
         {
-            Debug.Log("9");
+            //Debug.Log("9");
             Vector3 targetPosition = new Vector3(targetPositionXY.x, targetPositionXY.y, transform.position.z);
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
@@ -118,7 +126,7 @@ public class ClickToMove : MonoBehaviour
             if (Vector2.Distance(new Vector2(transform.position.x, transform.position.y), targetPositionXY) < 0.01f)
             {
 
-                Debug.Log("10");
+                //Debug.Log("10");
                 isMoving = false;
                 animator.SetBool("isMoving", false); // Disable moving animation
                 idle.SetActive(true);

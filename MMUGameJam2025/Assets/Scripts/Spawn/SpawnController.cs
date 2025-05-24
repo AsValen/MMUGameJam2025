@@ -9,13 +9,13 @@ public class SpawnController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = clickSpace.transform.localScale;
+        //transform.localScale = clickSpace.transform.localScale;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       // Instantiate(selectedPrefab, spawnPoint.position, Quaternion.identity);
     }
 }
