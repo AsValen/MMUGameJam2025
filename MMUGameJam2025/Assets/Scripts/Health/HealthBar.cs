@@ -2,44 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthBar : MonoBehaviour
 {
-    public PlaneHealth planeHealth;
-    private float healthUI;
-
-    public Image healthBar;
-    public float healthAmt = 100f;
+    [SerializeField] private PlaneHealth planeHealth;
+    [SerializeField] private Image healthBar;
 
     void Update()
     {
-        healthUI = planeHealth.currentHealth;
-
-        if(healthAmt <= 0)
+        if (planeHealth != null && healthBar != null)
         {
-            Application.LoadLevel(Application.loadedLevel);
+            float current = planeHealth.currentHealth;
+            float max = planeHealth.maxHealth;
+
+            healthBar.fillAmount = current / max;
+
+            if (current <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
-
-        /*if(Input.GetKeyDown(KeyCode.A))
-        {
-            TakeDamage(20);
-        }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            addFuel(5);
-        }*/
-    }
-
-    public void TakeDamage(float damage)
-    {
-        healthAmt -= damage;
-        healthBar.fillAmount = healthAmt / 100f;
-    }
-    public void addFuel(float fuelAmt)
-    {
-        healthAmt += fuelAmt;
-        healthAmt = Mathf.Clamp(healthAmt, 0, 100);
-
-        healthBar.fillAmount = healthAmt / 100f;
     }
 }

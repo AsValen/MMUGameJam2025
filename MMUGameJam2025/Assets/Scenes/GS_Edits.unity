@@ -200,7 +200,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 629136153855855224, guid: df0f6fd201c10394ca368cd501f80126, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 629136153855855224, guid: df0f6fd201c10394ca368cd501f80126, type: 3}
       propertyPath: m_LocalPosition.x
@@ -245,6 +245,10 @@ PrefabInstance:
     - target: {fileID: 629136153855855225, guid: df0f6fd201c10394ca368cd501f80126, type: 3}
       propertyPath: m_Name
       value: PlayerSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 629136153855855225, guid: df0f6fd201c10394ca368cd501f80126, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 629136154658820471, guid: df0f6fd201c10394ca368cd501f80126, type: 3}
       propertyPath: m_TagString
@@ -349,7 +353,7 @@ RectTransform:
   - {fileID: 1818448593}
   - {fileID: 907824100}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -567,31 +571,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1414012783}
-  - component: {fileID: 1414012782}
-  - component: {fileID: 1414012784}
   - component: {fileID: 1414012785}
+  - component: {fileID: 1414012784}
+  - component: {fileID: 1414012787}
+  - component: {fileID: 1414012786}
   m_Layer: 0
-  m_Name: HealthManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1414012782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414012781}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4728e9e829d98b48b71fd979e875276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planeHealth: {fileID: 1414012784}
-  healthBar: {fileID: 907824101}
-  healthAmt: 100
 --- !u!4 &1414012783
 Transform:
   m_ObjectHideFlags: 0
@@ -605,7 +595,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1414012784
 MonoBehaviour:
@@ -614,7 +604,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414012781}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9473330dcc6e78f4aa66dd3d3dc620b3, type: 3}
   m_Name: 
@@ -623,7 +613,7 @@ MonoBehaviour:
   maxHealth: 100
   damageInterval: 1
   damagePerTick: 1
-  invulnerableBoost: {fileID: 0}
+  invulnerableBoost: {fileID: 1414012787}
 --- !u!114 &1414012785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,15 +623,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 1414012781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea0ed150efd96747b6b7507bbec1ce3, type: 3}
+  m_Script: {fileID: 11500000, guid: c4728e9e829d98b48b71fd979e875276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 50
-  maxHealth: 100
-  damageInterval: 1
-  damagePerTick: 1
+  planeHealth: {fileID: 1414012784}
   healthBar: {fileID: 907824101}
-  invulnerableBoost: {fileID: 0}
+--- !u!114 &1414012786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414012781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f74ddfa28fed71743a750b69467cf475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSpeedBoost: 0
+  isInvulnerable: 1
+  isHealthBoost: 0
+  isDebugMode: 0
+--- !u!114 &1414012787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414012781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ca5126abbb1b04da85f5c9684bbdbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maintainedInvulnerable: 0
+  durationAbilities: 5
+  state: {fileID: 1414012786}
 --- !u!1 &1818448592
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,7 +752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8054916307703403131, guid: 74fd04573953c5848a0033b2b0480337, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8054916307703403131, guid: 74fd04573953c5848a0033b2b0480337, type: 3}
       propertyPath: m_LocalPosition.x
