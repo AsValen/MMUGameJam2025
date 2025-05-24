@@ -7,8 +7,15 @@ public class SpeedBoost : MonoBehaviour
     [SerializeField] private float speedBoost = 2f;
     [SerializeField] private float durationAbilities = 5f;
 
-    [SerializeField] private paperMovement playerMovement;
+    [SerializeField] private PlayerMovementFPPOV playerMovement;
     [SerializeField] private GameState state;
+
+    void Start()
+    {
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = playerObj.GetComponent<PlayerMovementFPPOV>();
+        state = playerObj.GetComponent<GameState>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,9 +28,12 @@ public class SpeedBoost : MonoBehaviour
         if (state.isSpeedBoost)
         {
             state.isSpeedBoost = false;
-            playerMovement.speed = playerMovement.speed * speedBoost;
+            playerMovement.forwardSpeed *= speedBoost;
+            // Might be a bug here, maybe need to turn off physics when hitting, so that the powerup wont fly weird
             yield return new WaitForSeconds(durationAbilities);
-            playerMovement.speed = playerMovement.speed / speedBoost;
+            playerMovement.forwardSpeed /= speedBoost;
+
+            Destroy(gameObject);
         }
     }
 }

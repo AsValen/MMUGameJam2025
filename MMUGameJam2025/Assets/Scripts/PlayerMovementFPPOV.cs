@@ -6,48 +6,14 @@ using UnityEngine;
 //Its monobehavior as didnt inherit functions or varaibles from another class
 public class PlayerMovementFPPOV : MonoBehaviour
 {
-    public float moveSpeed = 10f;
-    public float forwardSpeed = 5f; //constant speed at z-axis
-    public float smoothTime = 0.1f;
+    public float forwardSpeed = 15f; //constant speed at z-axis
 
-    // OOP Encapsulation
-    // Didnt allow other scripts to access/change the value so thats why its private, while serializefield allows it to be tweaked in the unity inspector
-    [SerializeField] private Rigidbody rb;
-
-    // set vector2 to zero
-    private Vector3 currentVelocity = Vector3.zero;
 
     // maybe use fixedUpdate
     // Update is called once per frame
     void Update()
     {
-        //For most common scenarios, especially action games where the user's input should have a continuous effect on an in-game character,
-        //Polling is usually simpler and easier to implement.
-        //poll the current value of an Action
-        //var move = m_Controls.gameplay.move.ReadValue<Vector2>();
-        //Move(move);
-
-        // Input is a legacy system
-        float moveHori = Input.GetAxisRaw("Horizontal");
-        float moveVer = Input.GetAxisRaw("Vertical");
-        //Debug.Log(moveHori);
-        //Debug.Log(moveVer);
-
-        //rb.velocity = new Vector2(moveHori * moveSpeed, moveVer * moveSpeed);
-
-        // velocity already has time delta time applied to it, so we don't need to multiply by Time.deltaTime again
-        Vector3 targetVelocity = new Vector3(moveHori * moveSpeed, moveVer * moveSpeed, forwardSpeed);
-
-        Vector3 finalVelocity = new Vector3(currentVelocity.x, currentVelocity.y, forwardSpeed);
-        // rb.velocity is rate of change of rigidbody position with respect to time
-        // current position / velocity, target position, current velocity (value is modified by the function every time you call it.), smooth time (Approximately the time it will take to reach the target)
-        // smoothdamp accepted velocity as the first value because we are returning a new velocity value, smoothly adjust the current velocity until it reaches the target velocity
-        // smoothdamp smooths any vector (position, velocity, acceleration, scale) over tiime
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, new Vector3(0, 0, forwardSpeed), ref currentVelocity, smoothTime);
-        //Debug.Log(rb.velocity);
-
-        //Use Lerp when you want fixed-rate interpolation or very basic smoothing.
-        //Use SmoothDamp when you want natural-feeling, gradual motion that slows down near the target — especially for movement, UI, or camera.
+        transform.Translate(Vector3.forward * forwardSpeed * Time.deltaTime);
     }
 
     //private void Move(Vector2 direction)

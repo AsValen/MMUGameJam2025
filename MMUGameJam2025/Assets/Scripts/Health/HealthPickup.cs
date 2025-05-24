@@ -12,6 +12,10 @@ public class HealthPickup : MonoBehaviour
     void Start()
     {
         healthPoints = 20f;
+
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        planeHealth = playerObj.GetComponent<PlaneHealth>();
+        state = playerObj.GetComponent<GameState>();
     }
 
     void Update()
@@ -21,10 +25,13 @@ public class HealthPickup : MonoBehaviour
             //Refactor damage, should be check if maxhealth is greater than 100 after adding then only proceed to add
             state.isHealthBoost = false;
             planeHealth.currentHealth += healthPoints;
+            //Debug.Log(planeHealth.currentHealth);
             if (planeHealth.currentHealth > planeHealth.maxHealth)
             {
                 planeHealth.currentHealth = planeHealth.maxHealth;
             }
+
+            Destroy(gameObject);
         }
     }
 

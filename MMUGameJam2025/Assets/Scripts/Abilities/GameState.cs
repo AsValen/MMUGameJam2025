@@ -8,7 +8,7 @@ public class GameState : MonoBehaviour
     public bool isInvulnerable = false;
     public bool isHealthBoost = false;
 
-    private bool isDebugMode = false;
+    public bool isDebugMode = false;
 
     //[SerializeField] private GameObject speedBoost;
     //[SerializeField] private GameObject invulnerableBoost;
@@ -35,7 +35,5 @@ public class GameState : MonoBehaviour
 
         // Maybe put this if there is bubble pop effect after getting the abilities
         //Instantiate(explosionPrefab, position, rotation);
-
-        Destroy(collision.gameObject);
     }
 }
