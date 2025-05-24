@@ -504,19 +504,9 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4649781173508642545, guid: df0f6fd201c10394ca368cd501f80126, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: df0f6fd201c10394ca368cd501f80126, type: 3}
---- !u!114 &543055207 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1876032232455080194, guid: df0f6fd201c10394ca368cd501f80126, type: 3}
-  m_PrefabInstance: {fileID: 543055206}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9473330dcc6e78f4aa66dd3d3dc620b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &984358714
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,36 +834,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6802e71755f3cdc4190a56c2868aead8, type: 3}
---- !u!1 &1639962420 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8420551147604090420, guid: 6802e71755f3cdc4190a56c2868aead8, type: 3}
-  m_PrefabInstance: {fileID: 1639962419}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1639962421 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8420551147269416566, guid: 6802e71755f3cdc4190a56c2868aead8, type: 3}
-  m_PrefabInstance: {fileID: 1639962419}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1639962422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639962420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4728e9e829d98b48b71fd979e875276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planeHealth: {fileID: 543055207}
-  healthBar: {fileID: 1639962421}
 --- !u!1 &2098371059
 GameObject:
   m_ObjectHideFlags: 0
