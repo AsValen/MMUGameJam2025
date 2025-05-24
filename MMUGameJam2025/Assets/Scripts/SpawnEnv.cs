@@ -8,7 +8,7 @@ public class SpawnEnv : MonoBehaviour
     [SerializeField] private GameObject forestEnv;
     [SerializeField] private GameObject skyEnv;
 
-    private GameObject currentEnv;
+    public GameObject currentEnv;
     private bool reachedDestination = false;
 
     public float currentkiloDistance;
