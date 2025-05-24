@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowPMZ : MonoBehaviour
+public class FollowCam : MonoBehaviour
 {
-    public Transform player;
-
+    public Transform cam;
     void Update()
     {
         Vector3 pos = transform.position;
-        pos.z = player.position.z;
+        pos.z = cam.position.z;
         transform.position = pos;
     }
 }
