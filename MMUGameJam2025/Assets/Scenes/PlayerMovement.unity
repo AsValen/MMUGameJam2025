@@ -319,6 +319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zSpeed: 25
+  speedIncrease: 1
+  interval: 5
 --- !u!1 &309349695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,6 +1404,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zSpeed: 25
+  speedIncrease: 10
+  interval: 5
 --- !u!95 &2117702144
 Animator:
   serializedVersion: 5
