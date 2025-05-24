@@ -22,11 +22,15 @@ public class ClickToMove : MonoBehaviour
         {
             Vector2 screenPos = Input.mousePosition;
 
+            Debug.Log("1");
+
             //  Determine screen quadrant
             if (screenPos.x < Screen.width / 2f)
             {
+                Debug.Log("2");
                 if (screenPos.y > Screen.height / 2f)
                 {
+                    Debug.Log("3");
                     animator.SetTrigger("UpperLeft");
                     upperLeft.SetActive(true);
 
@@ -38,6 +42,7 @@ public class ClickToMove : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("4");
                     animator.SetTrigger("LowerLeft");
                     lowerLeft.SetActive(true);
 
@@ -52,6 +57,7 @@ public class ClickToMove : MonoBehaviour
             {
                 if (screenPos.y > Screen.height / 2f)
                 {
+                    Debug.Log("5");
                     animator.SetTrigger("UpperRight");
                     upperRight.SetActive(true);
 
@@ -63,6 +69,7 @@ public class ClickToMove : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("6");
                     animator.SetTrigger("LowerRight");
                     lowerRight.SetActive(true);
 
@@ -73,7 +80,7 @@ public class ClickToMove : MonoBehaviour
                     //animator.SetBool("isMoving", true); // Enable moving animation
                 }
             }
-
+            Debug.Log("7");
             //  Raycast to detect click location in world space
             Ray ray = Camera.main.ScreenPointToRay(screenPos);
             if (Physics.Raycast(ray, out RaycastHit hit))
@@ -81,6 +88,8 @@ public class ClickToMove : MonoBehaviour
                 targetPositionXY = new Vector2(hit.point.x, hit.point.y);
                 isMoving = true;
             }
+
+            Debug.Log("8");
 
             /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -97,11 +106,19 @@ public class ClickToMove : MonoBehaviour
         // Move towards the clicked X and Y target
         if (isMoving)
         {
+            Debug.Log("9");
             Vector3 targetPosition = new Vector3(targetPositionXY.x, targetPositionXY.y, transform.position.z);
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
+            /*Debug.Log(transform.position);
+            Debug.Log(targetPositionXY);
+            Debug.Log(Vector2.Distance(new Vector2(transform.position.x, transform.position.y), targetPositionXY)); */
+
+
             if (Vector2.Distance(new Vector2(transform.position.x, transform.position.y), targetPositionXY) < 0.01f)
             {
+
+                Debug.Log("10");
                 isMoving = false;
                 animator.SetBool("isMoving", false); // Disable moving animation
                 idle.SetActive(true);

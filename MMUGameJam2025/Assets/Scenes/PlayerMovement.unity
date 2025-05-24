@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 165569291}
   - component: {fileID: 165569292}
-  - component: {fileID: 165569293}
   m_Layer: 0
   m_Name: paperplane_upperleft
   m_TagString: Untagged
@@ -149,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165569290}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1920, y: 1080, z: 711}
+  m_LocalPosition: {x: -26.129997, y: -30, z: 13}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -208,19 +207,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &165569293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165569290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d83a1794437583a4aa8264867a733b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zSpeed: 25
 --- !u!1 &286987078
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +219,7 @@ GameObject:
   - component: {fileID: 286987081}
   - component: {fileID: 286987080}
   - component: {fileID: 286987079}
+  - component: {fileID: 286987083}
   m_Layer: 0
   m_Name: ClickIt
   m_TagString: Untagged
@@ -319,6 +306,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &286987083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286987078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83a1794437583a4aa8264867a733b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zSpeed: 25
 --- !u!1 &350819096
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +329,6 @@ GameObject:
   m_Component:
   - component: {fileID: 350819097}
   - component: {fileID: 350819098}
-  - component: {fileID: 350819099}
   m_Layer: 0
   m_Name: paperplane_lowright
   m_TagString: Untagged
@@ -345,7 +344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350819096}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1920, y: 1080, z: 711}
+  m_LocalPosition: {x: -26.129997, y: -30, z: 13}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -398,25 +397,12 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.58, y: 7.19}
+  m_Size: {x: 7.06, y: 5.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &350819099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350819096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d83a1794437583a4aa8264867a733b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zSpeed: 25
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +508,8 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -595,6 +583,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c227e92b53d3dd4fba8f104127cb07d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06af41455d3957d4f82043c5c170db06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothSpeed: 5
+  offset: {x: 0, y: 0, z: -100}
+  target: {fileID: 2117702137}
+  followCamera: {fileID: 963194225}
 --- !u!1 &1599974470
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +622,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1599974471}
   - component: {fileID: 1599974472}
-  - component: {fileID: 1599974473}
   m_Layer: 0
   m_Name: paperplane_upperright
   m_TagString: Untagged
@@ -621,7 +637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599974470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1920, y: 1080, z: 711}
+  m_LocalPosition: {x: -26.129997, y: -30, z: 13}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -680,19 +696,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1599974473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1599974470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d83a1794437583a4aa8264867a733b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zSpeed: 25
 --- !u!1 &1604219126
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +706,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1604219127}
   - component: {fileID: 1604219128}
-  - component: {fileID: 1604219129}
   m_Layer: 0
   m_Name: paperplane_lowleft
   m_TagString: Untagged
@@ -719,7 +721,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604219126}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1920, y: 1080, z: 711}
+  m_LocalPosition: {x: -26.129997, y: -30, z: 13}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -772,25 +774,12 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.58, y: 7.19}
+  m_Size: {x: 7.06, y: 5.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1604219129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1604219126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d83a1794437583a4aa8264867a733b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zSpeed: 25
 --- !u!1 &1671116068
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,7 +791,6 @@ GameObject:
   - component: {fileID: 1671116072}
   - component: {fileID: 1671116071}
   - component: {fileID: 1671116073}
-  - component: {fileID: 1671116074}
   m_Layer: 0
   m_Name: paperplane_mid
   m_TagString: Untagged
@@ -870,7 +858,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671116068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1920, y: 1080, z: 711}
+  m_LocalPosition: {x: -26.129997, y: -30, z: 13}
   m_LocalScale: {x: 100.00004, y: 100.00004, z: 100}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -885,7 +873,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671116068}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 39e99c5ea99372a4c8890ed1088e9907, type: 2}
   m_CullingMode: 0
@@ -898,19 +886,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1671116074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671116068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d83a1794437583a4aa8264867a733b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zSpeed: 25
 --- !u!1 &1999730374
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,6 +964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2117702137}
   - component: {fileID: 2117702142}
+  - component: {fileID: 2117702144}
   - component: {fileID: 2117702141}
   - component: {fileID: 2117702143}
   m_Layer: 0
@@ -1066,3 +1042,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zSpeed: 25
+--- !u!95 &2117702144
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117702136}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39e99c5ea99372a4c8890ed1088e9907, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
