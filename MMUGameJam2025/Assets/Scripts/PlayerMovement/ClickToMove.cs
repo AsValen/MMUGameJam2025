@@ -14,7 +14,19 @@ public class ClickToMove : MonoBehaviour
     public GameObject lowerLeft;
     public GameObject lowerRight;
 
+    public AudioSource ppIdleAudio;
+    public AudioSource ppUpAudio;
+    public AudioSource ppDownAudio;
+
     [SerializeField] private Animator animator;
+
+    void Start()
+    {
+        ppIdleAudio.Play();
+
+        ppUpAudio.Stop();
+        ppDownAudio.Stop();
+    }
     void Update()
     {
         // Detect left mouse click
@@ -43,6 +55,10 @@ public class ClickToMove : MonoBehaviour
                             upperRight.SetActive(false);
                             lowerLeft.SetActive(false);
                             lowerRight.SetActive(false);
+
+                            ppUpAudio.Play();
+                            ppIdleAudio.Stop();
+                            ppDownAudio.Stop();
                             //animator.SetBool("isMoving", true); // Enable moving animation
                         }
                         else
@@ -55,6 +71,11 @@ public class ClickToMove : MonoBehaviour
                             upperRight.SetActive(false);
                             upperLeft.SetActive(false);
                             lowerRight.SetActive(false);
+
+                            ppDownAudio.Play();
+
+                            ppUpAudio.Stop();
+                            ppIdleAudio.Stop();
                             //animator.SetBool("isMoving", true); // Enable moving animation
                         }
                     }
@@ -70,6 +91,11 @@ public class ClickToMove : MonoBehaviour
                             upperLeft.SetActive(false);
                             lowerLeft.SetActive(false);
                             lowerRight.SetActive(false);
+
+                            ppUpAudio.Play();
+
+                            ppIdleAudio.Stop();
+                            ppDownAudio.Stop();
                             //animator.SetBool("isMoving", true); // Enable moving animation
                         }
                         else
@@ -82,6 +108,11 @@ public class ClickToMove : MonoBehaviour
                             upperLeft.SetActive(false);
                             upperRight.SetActive(false);
                             lowerLeft.SetActive(false);
+
+                            ppDownAudio.Play();
+
+                            ppUpAudio.Stop();
+                            ppIdleAudio.Stop();
                             //animator.SetBool("isMoving", true); // Enable moving animation
                         }
                     }
@@ -135,6 +166,11 @@ public class ClickToMove : MonoBehaviour
                 upperRight.SetActive(false);
                 lowerLeft.SetActive(false);
                 lowerRight.SetActive(false);
+
+                ppIdleAudio.Play();
+
+                ppUpAudio.Stop();
+                ppDownAudio.Stop();
             }
 
             /*Vector3 currentZ = new Vector3(0, 0, transform.position.z);
