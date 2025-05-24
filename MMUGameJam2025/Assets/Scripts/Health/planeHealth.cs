@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlaneHealth : MonoBehaviour
 {
     // starting with 5 electric symbols
-    public float currentHealth = 50f;
+    public float currentHealth = 100f;
 
     // 10 electric symbols
     public float maxHealth = 100f;
@@ -21,7 +21,7 @@ public class PlaneHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = 50f;
+        currentHealth = 100f;
         maxHealth = 100f;
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ESButt : MonoBehaviour
 {
@@ -28,11 +29,13 @@ public class ESButt : MonoBehaviour
     {
         Debug.Log("End flight button is clicked.");
         endFlightButt.Play();
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void OnRewindClick()
     {
         Debug.Log("Rewind button is clicked.");
         rewindButt.Play();
+        SceneManager.LoadScene("GameScene");
     }
 }

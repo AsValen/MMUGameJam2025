@@ -20,7 +20,7 @@ public class HealthBar : MonoBehaviour
 
             if (current <= 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                SceneManager.LoadScene("EndScene");
             }
         }
     }

@@ -42,12 +42,12 @@ public class SpawnEnv : MonoBehaviour
         currentkiloDistance = TotalkiloDistance - lastDistanceCovered;
 
 
-        Debug.Log("Current Distance: " + currentkiloDistance);
-        Debug.Log("goal: " + goalDistance);
+        //Debug.Log("Current Distance: " + currentkiloDistance);
+        //Debug.Log("goal: " + goalDistance);
 
         if (currentkiloDistance >= goalDistance)
         {
-            Debug.Log("1");
+            //Debug.Log("1");
             lastDistanceCovered = TotalkiloDistance;
             currentkiloDistance = 0f;
             StartCoroutine(prepareNextEnv());
@@ -56,7 +56,7 @@ public class SpawnEnv : MonoBehaviour
 
     IEnumerator prepareNextEnv()
     {
-        Debug.Log("2");
+        //Debug.Log("2");
         // FLASH BANG OF WHITENESS, put here
         yield return new WaitForSeconds(timeToChangeEnv); // Wait for 2 seconds before spawning the next environment
         randomChooseEnv();

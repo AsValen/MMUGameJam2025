@@ -348,9 +348,6 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 20}
   target: {fileID: 0}
   followCamera: {fileID: 0}
-  zSpeed: 25
-  speedIncrease: 1
-  interval: 5
 --- !u!1 &629136154278220695
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,8 +552,8 @@ GameObject:
   - component: {fileID: 629136154658820466}
   - component: {fileID: 629136154658820464}
   - component: {fileID: 3161827189533466801}
-  - component: {fileID: 5770031927695812185}
-  - component: {fileID: 1660929131331453691}
+  - component: {fileID: 1876032232455080194}
+  - component: {fileID: 3027926990049879544}
   - component: {fileID: 7925950790351043742}
   - component: {fileID: 5303124565468408799}
   - component: {fileID: 3751492251673914847}
@@ -659,6 +656,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zSpeed: 25
+  speedIncrease: 1
+  interval: 5
 --- !u!65 &3161827189533466801
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -672,10 +671,39 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1000, y: 700, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5770031927695812185
+--- !u!114 &1876032232455080194
 MonoBehaviour:
-  speedIncrease: 1
-  interval: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629136154658820471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9473330dcc6e78f4aa66dd3d3dc620b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 50
+  maxHealth: 100
+  damageInterval: 1
+  damagePerTick: 1
+  invulnerableBoost: {fileID: 0}
+--- !u!114 &3027926990049879544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629136154658820471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f74ddfa28fed71743a750b69467cf475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSpeedBoost: 0
+  isInvulnerable: 0
+  isHealthBoost: 0
+  isDebugMode: 0
 --- !u!82 &7925950790351043742
 AudioSource:
   m_ObjectHideFlags: 0
@@ -684,24 +712,13 @@ AudioSource:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629136154658820471}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2708fef084978b748ac7cecb67534c2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 50
-  maxHealth: 100
-  damageInterval: 1
-  damagePerTick: 1
-  invulnerableBoost: {fileID: 0}
---- !u!114 &1660929131331453691
-MonoBehaviour:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 50a7fad699e6d014cbac80e8e7c95969, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -710,7 +727,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -719,7 +736,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -727,8 +744,125 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 0
+      time: 0.1
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.2
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.6
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 3.2
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 6.4
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 12.8
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 25.6
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 51.2
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 102.4
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 204.8
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 409.6
+      value: 1e-45
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 500
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -791,14 +925,6 @@ AudioSource:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629136154658820471}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f74ddfa28fed71743a750b69467cf475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSpeedBoost: 0
-  isInvulnerable: 0
-  isHealthBoost: 0
-  isDebugMode: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0a40d1b4bc8685245bb5a0805fc95d62, type: 3}
