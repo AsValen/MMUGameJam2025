@@ -9,8 +9,12 @@ public class InvulnerableBoost : MonoBehaviour
 
     [SerializeField] private GameState state;
 
+    [SerializeField] private float maxZDistance = 250f;
+    [SerializeField] private GameObject player;
+
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         state = GameObject.FindGameObjectWithTag("Player").GetComponent<GameState>();
     }
 
@@ -18,6 +22,11 @@ public class InvulnerableBoost : MonoBehaviour
     void Update()
     {
         StartCoroutine(ActivateInvulnerable());
+
+        if (player.transform.position.z - transform.position.z > maxZDistance)
+        {
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator ActivateInvulnerable()
@@ -27,6 +36,7 @@ public class InvulnerableBoost : MonoBehaviour
             state.isInvulnerable = false;
             maintainedInvulnerable = true;
             yield return new WaitForSeconds(durationAbilities);
+            Debug.Log("destroy");
             maintainedInvulnerable = false;
 
             Destroy(gameObject);

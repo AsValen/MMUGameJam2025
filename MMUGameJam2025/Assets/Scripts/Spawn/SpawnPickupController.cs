@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnController : MonoBehaviour
+public class SpawnPickupController : MonoBehaviour
 {
+
     [SerializeField] private GameObject spawnPoint;
 
-    [SerializeField] private GameObject seaObstacle;
-    [SerializeField] private GameObject forestObstacle;
-    [SerializeField] private GameObject skyObstacle;
+    [SerializeField] private GameObject invulnerableItem;
+    [SerializeField] private GameObject speedItem;
+    [SerializeField] private GameObject healthItem;
 
-    [SerializeField] private SpawnEnv spawnEnv;
-
-    [SerializeField] private float spawnInterval = 5f;
+    [SerializeField] private float spawnInterval = 10f;
     [SerializeField] private bool waitForNextSpawn = false;
 
     [SerializeField] private Vector3 spawnPosition;
 
-    [SerializeField] private Renderer planeRenderer;
+    private Renderer planeRenderer;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,7 +32,7 @@ public class SpawnController : MonoBehaviour
 
     void SpawnObstacles()
     {
-        if(waitForNextSpawn) return;
+        if (waitForNextSpawn) return;
 
         Bounds bounds = planeRenderer.bounds;
 
@@ -47,19 +46,18 @@ public class SpawnController : MonoBehaviour
             spawnPoint.transform.position.z
         );
 
-        switch (spawnEnv.currentEnv.name)
-        { 
-            case "sea env(Clone)":
-                Instantiate(seaObstacle, spawnPosition, seaObstacle.transform.rotation);
+        int randomPickup = Random.Range(0, 3);
+
+        switch (randomPickup)
+        {
+            case 0:
+                Instantiate(invulnerableItem, spawnPosition, invulnerableItem.transform.rotation);
                 break;
-            case "forest env(Clone)":
-                Instantiate(forestObstacle, spawnPosition, Quaternion.identity);
+            case 1:
+                Instantiate(speedItem, spawnPosition, speedItem.transform.rotation);
                 break;
-            case "sky env(Clone)":
-                Instantiate(skyObstacle, spawnPosition, skyObstacle.transform.rotation);
-                break;
-            default:
-                Debug.LogWarning("Unknown environment type: " + spawnEnv.currentEnv.name);
+            case 2:
+                Instantiate(healthItem, spawnPosition, healthItem.transform.rotation);
                 break;
         }
 
@@ -72,5 +70,4 @@ public class SpawnController : MonoBehaviour
         yield return new WaitForSeconds(spawnInterval);
         waitForNextSpawn = false;
     }
-
 }

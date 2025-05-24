@@ -15,7 +15,6 @@ public class ObstacleDamage : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         planeHealth = player.GetComponent<PlaneHealth>();
-
     }
 
     void Update()

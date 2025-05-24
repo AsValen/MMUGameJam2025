@@ -9,18 +9,22 @@ public class HealthPickup : MonoBehaviour
 
     [SerializeField] private GameState state;
 
+
+    [SerializeField] private float maxZDistance = 250f;
+    [SerializeField] private GameObject player;
+
     void Start()
     {
         healthPoints = 20f;
 
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        planeHealth = playerObj.GetComponent<PlaneHealth>();
-        state = playerObj.GetComponent<GameState>();
+        player  = GameObject.FindGameObjectWithTag("Player");
+        planeHealth = player.GetComponent<PlaneHealth>();
+        state = player.GetComponent<GameState>();
     }
 
     void Update()
     {
-        if(state.isHealthBoost)
+        if (state.isHealthBoost)
         {
             //Refactor damage, should be check if maxhealth is greater than 100 after adding then only proceed to add
             state.isHealthBoost = false;
@@ -31,6 +35,10 @@ public class HealthPickup : MonoBehaviour
                 planeHealth.currentHealth = planeHealth.maxHealth;
             }
 
+            Destroy(gameObject);
+        }
+        else if (player.transform.position.z - transform.position.z > maxZDistance)
+        {
             Destroy(gameObject);
         }
     }

@@ -244,8 +244,8 @@ GameObject:
   - component: {fileID: 629136154207835077}
   - component: {fileID: 629136154207835078}
   - component: {fileID: 629136154207835079}
-  - component: {fileID: 629136154207835076}
   - component: {fileID: 2274508583060570694}
+  - component: {fileID: 1619353123435255780}
   m_Layer: 0
   m_Name: ClickIt
   m_TagString: clickBoard
@@ -318,19 +318,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &629136154207835076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 629136154207835081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d83a1794437583a4aa8264867a733b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zSpeed: 25
 --- !u!64 &2274508583060570694
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -345,6 +332,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1619353123435255780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629136154207835081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06af41455d3957d4f82043c5c170db06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothSpeed: 5
+  offset: {x: 0, y: 0, z: 20}
+  target: {fileID: 0}
+  followCamera: {fileID: 0}
 --- !u!1 &629136154278220695
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +553,7 @@ GameObject:
   - component: {fileID: 629136154658820464}
   - component: {fileID: 3161827189533466801}
   - component: {fileID: 5770031927695812185}
+  - component: {fileID: 1660929131331453691}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -676,6 +680,22 @@ MonoBehaviour:
   damageInterval: 1
   damagePerTick: 1
   invulnerableBoost: {fileID: 0}
+--- !u!114 &1660929131331453691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629136154658820471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f74ddfa28fed71743a750b69467cf475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSpeedBoost: 0
+  isInvulnerable: 0
+  isHealthBoost: 0
+  isDebugMode: 0
 --- !u!1 &629136155172712569
 GameObject:
   m_ObjectHideFlags: 0
