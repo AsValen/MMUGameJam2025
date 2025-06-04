@@ -5,16 +5,19 @@ using UnityEngine;
 public class ObstacleDamage : MonoBehaviour
 {
     [SerializeField] protected float damageAmount; // Amount of damage to apply
-    [SerializeField] protected PlaneHealth planeHealth;
     [SerializeField] protected GameObject player; // Reference to the player transform
+    [SerializeField] protected PlaneHealth planeHealth;
+    [SerializeField] private GameState gameState;
 
     [SerializeField] private float maxZDistance = 250f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         planeHealth = player.GetComponent<PlaneHealth>();
+        gameState = player.GetComponent<GameState>();
     }
 
     void Update()
@@ -32,6 +35,10 @@ public class ObstacleDamage : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
+            if (gameState.maintainedInvulnerable)
+            {
+                Destroy(gameObject);
+            }
 
             //Debug.Log("touch");
             //Debug.Log("Player Health: " + planeHealth.currentHealth);

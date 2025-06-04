@@ -553,10 +553,10 @@ GameObject:
   - component: {fileID: 629136154658820464}
   - component: {fileID: 3161827189533466801}
   - component: {fileID: 3027926990049879544}
+  - component: {fileID: 4782291068926344921}
   - component: {fileID: 7925950790351043742}
   - component: {fileID: 5303124565468408799}
   - component: {fileID: 3751492251673914847}
-  - component: {fileID: 4782291068926344921}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -683,10 +683,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74ddfa28fed71743a750b69467cf475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSpeedBoost: 0
   isInvulnerable: 0
   isHealthBoost: 0
   isDebugMode: 0
+  player: {fileID: 0}
+  speedBoostMult: 2
+  speedDurationAbilities: 5
+  constZMove: {fileID: 0}
+  invuDurationAbilities: 5
+  maintainedInvulnerable: 0
+--- !u!114 &4782291068926344921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629136154658820471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9473330dcc6e78f4aa66dd3d3dc620b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+  maxHealth: 100
+  damageInterval: 1
+  damagePerTick: 1
+  gameState: {fileID: 3027926990049879544}
 --- !u!82 &7925950790351043742
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1092,23 +1114,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4782291068926344921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 629136154658820471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9473330dcc6e78f4aa66dd3d3dc620b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 100
-  maxHealth: 100
-  damageInterval: 1
-  damagePerTick: 1
-  invulnerableBoost: {fileID: 0}
 --- !u!1 &629136155172712569
 GameObject:
   m_ObjectHideFlags: 0

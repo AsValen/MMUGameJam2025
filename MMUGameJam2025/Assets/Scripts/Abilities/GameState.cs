@@ -20,7 +20,6 @@ public class GameState : MonoBehaviour
     [SerializeField] private float speedBoostMult = 2f;
     [SerializeField] private float speedDurationAbilities = 5f;
     [SerializeField] private ConstZMove constZMove;
-    public bool maintainedSpeed = false;
 
 
     // Invurnerable boost
@@ -39,7 +38,7 @@ public class GameState : MonoBehaviour
         }
         else if (collision.gameObject.tag == "invulnerableBoost")
         {
-            isInvulnerable = true;
+            StartCoroutine(ActivateInvulnerable());
             if (isDebugMode) Debug.Log("invulnerableBoost");
         }
         else if (collision.gameObject.tag == "healthPickup")
@@ -67,17 +66,12 @@ public class GameState : MonoBehaviour
         constZMove.zSpeed /= speedBoostMult;
     }
 
-    //IEnumerator ActivateInvulnerable()
-    //{
-    //    if (state.isInvulnerable)
-    //    {
-    //        state.isInvulnerable = false;
-    //        maintainedInvulnerable = true;
-    //        yield return new WaitForSeconds(invuDurationAbilities);
-    //        Debug.Log("destroy");
-    //        maintainedInvulnerable = false;
+    IEnumerator ActivateInvulnerable()
+    {
+        maintainedInvulnerable = true;
 
-    //        Destroy(gameObject);
-    //    }
-    //}
+        yield return new WaitForSeconds(invuDurationAbilities);
+
+        maintainedInvulnerable = false;
+    }
 }

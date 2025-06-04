@@ -14,7 +14,7 @@ public class NewHealthCode : MonoBehaviour
     public Image healthBar;
 
     [Header("Invulnerability")]
-    [SerializeField] private InvulnerableBoost invulnerableBoost;
+    //[SerializeField] private InvulnerableBoost invulnerableBoost;
 
     private float nextDamageTime = 1f;
 
@@ -26,10 +26,10 @@ public class NewHealthCode : MonoBehaviour
 
     void Update()
     {
-        if (invulnerableBoost != null && invulnerableBoost.maintainedInvulnerable)
-        {
-            return;
-        }
+        //if (invulnerableBoost != null && invulnerableBoost.maintainedInvulnerable)
+        //{
+        //    return;
+        //}
 
         // Continuous damage over time
         while (Time.time >= nextDamageTime)
@@ -67,12 +67,12 @@ public class NewHealthCode : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("invulnerableBoost"))
-        {
-            invulnerableBoost = collision.gameObject.GetComponent<InvulnerableBoost>();
-        }
-    }
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("invulnerableBoost"))
+    //    {
+    //        invulnerableBoost = collision.gameObject.GetComponent<InvulnerableBoost>();
+    //    }
+    //}
 }
 

@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class PlaneHealth : MonoBehaviour
 {
-    // starting with 5 electric symbols
     public float currentHealth = 100f;
 
-    // 10 electric symbols
     public float maxHealth = 100f;
 
 
@@ -16,7 +14,7 @@ public class PlaneHealth : MonoBehaviour
 
     private float nextDamageTime = 1f;
 
-    [SerializeField] private InvulnerableBoost invulnerableBoost;
+    [SerializeField] private GameState gameState;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +26,7 @@ public class PlaneHealth : MonoBehaviour
     void Update()
     {
 
-        if (invulnerableBoost != null && invulnerableBoost.maintainedInvulnerable)
+        if (gameState.maintainedInvulnerable)
         {
             return; // Don't apply damage
         }
@@ -47,14 +45,6 @@ public class PlaneHealth : MonoBehaviour
                 currentHealth = 0;
 
             }
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "invulnerableBoost")
-        {
-            invulnerableBoost = collision.gameObject.GetComponent<InvulnerableBoost>();
         }
     }
 
