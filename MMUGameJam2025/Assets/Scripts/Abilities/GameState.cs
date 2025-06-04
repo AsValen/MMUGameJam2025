@@ -4,14 +4,29 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    public bool isSpeedBoost = false;
+
+    //public bool isSpeedBoost = false;
     public bool isInvulnerable = false;
     public bool isHealthBoost = false;
 
     public bool isDebugMode = false;
 
-    //[SerializeField] private GameObject speedBoost;
-    //[SerializeField] private GameObject invulnerableBoost;
+
+    // Init
+    [SerializeField] private GameObject player;
+
+
+    // Speed boost
+    [SerializeField] private float speedBoostMult = 2f;
+    [SerializeField] private float speedDurationAbilities = 5f;
+    [SerializeField] private ConstZMove constZMove;
+    public bool maintainedSpeed = false;
+
+
+    // Invurnerable boost
+    [SerializeField] private float invuDurationAbilities = 5f;
+    public bool maintainedInvulnerable = false;
+
 
     // Both objects colide need to have rigidbody and collider
     void OnCollisionEnter(Collision collision)
@@ -19,8 +34,8 @@ public class GameState : MonoBehaviour
 
         if (collision.gameObject.tag == "speedBoost")
         {
-            isSpeedBoost = true;
-            if(isDebugMode) Debug.Log("speedBoost");
+            StartCoroutine(ActivateSpeed());
+            if (isDebugMode) Debug.Log("speedBoost");
         }
         else if (collision.gameObject.tag == "invulnerableBoost")
         {
@@ -36,4 +51,33 @@ public class GameState : MonoBehaviour
         // Maybe put this if there is bubble pop effect after getting the abilities
         //Instantiate(explosionPrefab, position, rotation);
     }
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        constZMove = player.GetComponent<ConstZMove>();
+    }
+
+    IEnumerator ActivateSpeed()
+    {
+        constZMove.zSpeed *= speedBoostMult;
+
+        yield return new WaitForSeconds(speedDurationAbilities);
+
+        constZMove.zSpeed /= speedBoostMult;
+    }
+
+    //IEnumerator ActivateInvulnerable()
+    //{
+    //    if (state.isInvulnerable)
+    //    {
+    //        state.isInvulnerable = false;
+    //        maintainedInvulnerable = true;
+    //        yield return new WaitForSeconds(invuDurationAbilities);
+    //        Debug.Log("destroy");
+    //        maintainedInvulnerable = false;
+
+    //        Destroy(gameObject);
+    //    }
+    //}
 }
