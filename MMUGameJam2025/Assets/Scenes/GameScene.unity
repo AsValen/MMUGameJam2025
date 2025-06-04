@@ -507,6 +507,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4649781173508642545, guid: df0f6fd201c10394ca368cd501f80126, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: df0f6fd201c10394ca368cd501f80126, type: 3}
+--- !u!114 &543055207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4782291068926344921, guid: df0f6fd201c10394ca368cd501f80126, type: 3}
+  m_PrefabInstance: {fileID: 543055206}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9473330dcc6e78f4aa66dd3d3dc620b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &984358714
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +755,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6038249965878522184, guid: 6802e71755f3cdc4190a56c2868aead8, type: 3}
+      propertyPath: planeHealth
+      value: 
+      objectReference: {fileID: 543055207}
     - target: {fileID: 8420551147604090420, guid: 6802e71755f3cdc4190a56c2868aead8, type: 3}
       propertyPath: m_Name
       value: HealthBar
